@@ -6,23 +6,16 @@
 #    By: hkalia <hkalia@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/03 09:01:59 by hkalia            #+#    #+#              #
-#    Updated: 2017/02/02 13:12:49 by hkalia           ###   ########.fr        #
+#    Updated: 2017/02/11 17:21:05 by hkalia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:=	libft.a
-SHELL		:=	/bin/zsh
-
 CC			:=	gcc
 CFLAGS		+=	-Wall -Wextra -I includes
 CFLAGS		+=	-Werror
-#CFLAGS		+=	-fsanitize=address
 LDFLAGS		+=	-L . $(subst .a,,$(subst lib,-l,$(NAME)))
-#LDFLAGS		+=	-fsanitize=address
-
-SRC_DIR		:=	srcs
 TEST		:=	test.c
-
 CHR			:=	ft_putchar_fd ft_putchar
 FT_CTYPE	:=	ft_isalnum ft_isalpha ft_isascii ft_isblank ft_iscntrl		\
 				ft_isdigit ft_isgraph ft_islower ft_isprint ft_ispunct		\
@@ -50,7 +43,7 @@ FILES		:=	$(addprefix chr/, $(CHR))				\
 				$(addprefix nbr/, $(NBR))				\
 				$(addprefix str/, $(STR))				\
 
-SRC			:=	$(addprefix $(SRC_DIR)/, $(addsuffix .c, $(FILES)))
+SRC			:=	$(addprefix srcs/, $(addsuffix .c, $(FILES)))
 OBJ			:=	$(SRC:.c=.o)
 
 # MATH
@@ -68,7 +61,7 @@ all: $(NAME)
 
 $(OBJ): %.o: %.c
 	@printf "\r\e[31mCompiling...(%d/%d)\e[0m" $(COUNTER) $(MAX)
-	@$(CC) -c $(CFLAGS) $(INC_DIR) $< -o $@
+	@$(CC) -c $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJ)
 	@printf "\r\e[32mCompiling...(%d/%d)[DONE]\n\e[0m" $(MAX) $(MAX)
