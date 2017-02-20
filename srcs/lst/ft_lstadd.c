@@ -6,14 +6,14 @@
 /*   By: hkalia <hkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 15:37:15 by hkalia            #+#    #+#             */
-/*   Updated: 2016/12/10 15:45:51 by hkalia           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:38:14 by hkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <lst.h>
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_lstadd(t_lst **alst, t_lst *elm)
 {
-	new->next = *alst;
-	*alst = new;
+	elm->nxt = *alst;
+	*alst = elm;
 }

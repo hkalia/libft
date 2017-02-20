@@ -6,15 +6,15 @@
 /*   By: hkalia <hkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 15:24:31 by hkalia            #+#    #+#             */
-/*   Updated: 2016/12/10 15:45:39 by hkalia           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:39:42 by hkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <lst.h>
 
-void	ft_lstaddend(t_list *lst, t_list *new)
+void	ft_lstaddend(t_lst *lst, t_lst *elm)
 {
-	while (lst->next)
-		lst = lst->next;
-	lst->next = new;
+	while (lst->nxt)
+		lst = lst->nxt;
+	lst->nxt = elm;
 }

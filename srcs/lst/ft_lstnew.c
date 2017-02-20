@@ -6,7 +6,7 @@
 /*   By: hkalia <hkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 15:37:30 by hkalia            #+#    #+#             */
-/*   Updated: 2017/02/02 12:00:44 by hkalia           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:43:17 by hkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 #include <ft_string.h>
 #include <stdlib.h>
 
-t_list	*ft_lstnew(const void *content, size_t content_size)
+t_lst	*ft_lstnew(const void *src, size_t sze)
 {
-	t_list	*new;
+	t_lst	*new;
 
-	GRD((new = (t_list*)malloc(sizeof(t_list))) == 0, 0);
-	if (content == 0)
+	GRD((new = malloc(sizeof(t_lst))) == 0, 0);
+	if (src == 0)
 	{
-		new->content = 0;
-		new->content_size = 0;
+		new->ptr = 0;
+		new->sze = 0;
 	}
 	else
 	{
-		GRD((new->content = malloc(content_size)) == 0, 0);
-		ft_memcpy(new->content, content, content_size);
-		new->content_size = content_size;
+		GRD((new->ptr = malloc(sze)) == 0, 0);
+		ft_memcpy(new->ptr, src, sze);
+		new->sze = sze;
 	}
-	new->next = 0;
+	new->nxt = 0;
 	return (new);
 }

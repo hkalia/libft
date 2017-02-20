@@ -6,7 +6,7 @@
 /*   By: hkalia <hkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 15:09:38 by hkalia            #+#    #+#             */
-/*   Updated: 2017/02/02 12:00:00 by hkalia           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:39:13 by hkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@
 
 # include <stddef.h>
 
-typedef struct		s_list
+typedef struct		s_lst
 {
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
+	void			*ptr;
+	size_t			sze;
+	struct s_lst	*nxt;
+}					t_lst;
 
-void				ft_lstadd(t_list **alst, t_list *new);
-void				ft_lstaddend(t_list *lst, t_list *new);
-void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-t_list				*ft_lstnew(const void *content, size_t content_size);
+void				ft_lstadd(t_lst **alst, t_lst *elm);
+void				ft_lstaddend(t_lst *lst, t_lst *elm);
+void				ft_lstdel(t_lst **alst, void (*del)(void *, size_t));
+void				ft_lstdelone(t_lst **alst, void (*del)(void *, size_t));
+void				ft_lstiter(t_lst *lst, void (*f)(t_lst *elm));
+t_lst				*ft_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elm));
+t_lst				*ft_lstnew(const void *src, size_t sze);
 
 #endif

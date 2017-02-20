@@ -6,15 +6,15 @@
 /*   By: hkalia <hkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 15:37:24 by hkalia            #+#    #+#             */
-/*   Updated: 2016/12/10 15:45:06 by hkalia           ###   ########.fr       */
+/*   Updated: 2017/02/20 15:40:43 by hkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <lst.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void	ft_lstiter(t_lst *lst, void (*f)(t_lst *elem))
 {
 	f(lst);
-	if (lst->next)
-		ft_lstiter(lst->next, f);
+	if (lst->nxt)
+		ft_lstiter(lst->nxt, f);
 }
